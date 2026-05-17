@@ -945,6 +945,9 @@ static cmark_node *check_open_blocks(cmark_parser *parser, cmark_chunk *input,
     case CMARK_NODE_HEADING:
       // a heading can never contain more than one line
       goto done;
+    case CMARK_NODE_THEMATIC_BREAK:
+      // a thematic break can never contain more than one line
+      goto done;
     case CMARK_NODE_HTML_BLOCK:
       if (!parse_html_block_prefix(parser, container))
         goto done;
